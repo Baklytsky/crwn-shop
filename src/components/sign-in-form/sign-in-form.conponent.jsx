@@ -8,6 +8,7 @@ import {
 } from '../../utils/firebase/firebase';
 
 import './sign-in-form.styles.scss';
+import {useNavigate} from "react-router-dom";
 
 const defaultFormFields = {
   email: '',
@@ -17,6 +18,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const navigate = useNavigate()
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -32,6 +34,7 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate('/shop');
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':
