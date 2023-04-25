@@ -5,9 +5,7 @@ const CategoryItem = ({products, title}) => {
   const imageUrl = products[0].imageUrl
   return (
       <Link className='category-container' to={`shop/${title}`}>
-        <div className='background-image' style={{
-          background: `url(${imageUrl})`
-        }}></div>
+        <img src={imageUrl} alt={title}/>
         <div className='category-body-container'>
           <h2>{title}</h2>
           <p>Shop now</p>

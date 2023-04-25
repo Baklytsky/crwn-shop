@@ -1,15 +1,15 @@
-import './quantity-selector.styles.scss'
+import {Quantity} from './quantity-selector.styles'
 import {CartContext} from '../../context/cart.context'
 import {useContext} from "react";
-const QuantitySelector = ({product, className}) => {
+const QuantitySelector = ({product}) => {
   const {addToCart, removeFromCart} = useContext(CartContext)
 
   return (
-      <div className={`quantity-selector ${className}`}>
+      <Quantity>
         <span className='minus' onClick={() => removeFromCart(product)}>-</span>
         <span>{product.quantity}</span>
         <span  className='plus' onClick={() => addToCart(product)}>+</span>
-      </div>
+      </Quantity>
   )
 }
 

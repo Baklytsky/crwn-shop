@@ -1,4 +1,16 @@
-.checkout-item-container {
+import styled from "styled-components";
+import {Quantity} from "../quantity-selector/quantity-selector.styles";
+
+export const CheckoutImageContainer = styled.div`
+  width: 23%;
+  padding-right: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
+export const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
   min-height: 100px;
@@ -7,22 +19,13 @@
   font-size: 20px;
   align-items: center;
 
-  .image-container {
-    width: 23%;
-    padding-right: 15px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
   .name,
-  .quantity,
+  ${Quantity},
   .price {
     width: 23%;
   }
 
-  .quantity {
+  ${Quantity} {
     display: flex;
 
     .arrow {
@@ -37,5 +40,6 @@
   .remove-button {
     padding-left: 12px;
     cursor: pointer;
+    flex-grow: 1;
   }
-}
+`

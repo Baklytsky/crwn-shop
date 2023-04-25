@@ -15,7 +15,7 @@ const addItemToCart = (cartItems, product) => {
 const removeItemFromCart = (cartItems, product, removeLineItem = false ) => {
   const existingCartItem = cartItems.find(item => item.id === product.id)
 
-  if (existingCartItem === 1 || removeLineItem) {
+  if (existingCartItem.quantity === 1 || removeLineItem) {
     return cartItems.filter(item => item.id !== product.id)
   }
 
